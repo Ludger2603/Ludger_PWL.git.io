@@ -23,14 +23,9 @@
       </div>
     </div>
     <button type="submit" class="btn btn-primary btn-block">Login</button>
-    </form>
+    <a href="/register" class="btn btn-info btn-block">Register</a>
+  </form>
 @endsection
 @push('js')
-    <script>
-        $(function () {
-            @if(Session::has('gagal'))
-            toastr.error('{{Session::get('gagal')}}', 'Login Error')
-            @endif
-        });
-    </script>
+    
 @endpush

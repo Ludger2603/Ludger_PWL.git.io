@@ -41,6 +41,17 @@
 
 <!-- AdminLTE App -->
 <script src="/assets/dist/js/adminlte.min.js"></script>
+<script>
+    $(function () {
+        @if(Session::has('gagal'))
+            toastr.error('{{Session::get('gagal')}}', 'Login Error')
+        @endif
+
+        @if(Session::has('sukses'))
+        toastr.success('{{Session::get('sukses')}}', 'Notifikasi')
+        @endif
+    });
+</script>
 @stack('js')
 </body>
 </html>

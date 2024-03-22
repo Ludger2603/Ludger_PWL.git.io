@@ -14,6 +14,12 @@ Route::get('/', function () {
 
 Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login/verify', [AuthController::class, 'verify']);
+
+Route::get('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'registerProceed']);
+Route::get('/register/activation/{token}', [AuthController::class, 'registerVerify']);
+
+
 Route::get('/logout', function () {
     Auth::logout();
     session()->invalidate();
@@ -54,3 +60,32 @@ Route::group(['middleware' => 'auth', 'prefix' => 'user'], function () {
     Route::post('/change-password', [TestingController::class, 'updatePassword']);
 });
 
+Route::get('mail/test', function () {
+    \Illuminate\Support\Facades\Mail::to('jokowi@gmail.com')
+        ->queue(new \App\Mail\TestMail());
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Route::get('/latihan', function () {
+//    echo "Hello World";
+//});
+//
+//Route::get('/read/{judul}', [TestController::class, 'read']);
+//
+//Route::get('/test', [TestController::class, 'index']);
+//
+//Route::get('/teacher', [TestController::class, 'teacher']);
+//
+//Route::get('/student', [TestController::class, 'student']);
