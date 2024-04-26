@@ -59,7 +59,7 @@ class AuthController extends Controller
         $user = User::query()->where('email', $email)->first();
         if ($user !== null) {
             #email sudah digunakan, tidak boleh mendaftar lagi
-            return back()->with('gagal', 'Tidak mendaftar menggunakan email yang sama.');
+            return back()->with('gagal', 'Tidak dapat mendaftar menggunakan email yang sama.');
         }
         $user = new User();
         $user->name = $name;
