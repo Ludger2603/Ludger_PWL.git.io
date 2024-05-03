@@ -20,6 +20,7 @@
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
+            @can('admin')
                 <li class="nav-item">
                     <a href="{{ url('/teacher') }}" class="nav-link">
                         <i class="nav-icon fas fa-graduation-cap"></i>
@@ -32,6 +33,7 @@
                         <p>Students</p>
                     </a>
                 </li>
+                @endcan
                 <li class="nav-item">
                     <a href="{{ url('/product') }}" class="nav-link">
                         <i class="nav-icon fas fa-store"></i>
@@ -39,8 +41,8 @@
                     </a>
                 <li class="nav-item">
                     <a href="{{ url('/app') }}" class="nav-link">
-                        <i class="nav-icon fas fa-store"></i>
-                        <p>App</p>
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>Aplikasi Kasir</p>
                     </a>
                 </li>
             </ul>

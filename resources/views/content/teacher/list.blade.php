@@ -6,7 +6,10 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <a class="btn btn-primary mb-2" href="{{url('/teacher/add')}}">Tambah Data Teacher</a>
+                    <a class="btn btn-primary" href="{{url('/teacher/add')}}">Tambah Data Teacher</a>
+                    <a target="_blank" href="{{route('export.excel')}}" class="btn btn-success">
+                        <i class="fas fa-file-excel"></i>Export XLS
+                    </a>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -31,6 +34,7 @@
                                     <td>{{$teacher->dob}}</td>
                                     <td>{{$teacher->age}} Tahun</td>
                                     <td>
+                                        @can('superadmin')
                                         <a class="btn btn-warning btn-sm"
                                            href="{{url('teacher/edit/'.$teacher->id)}}">
                                             <i class="fas fa-edit  "></i>
@@ -41,6 +45,7 @@
                                                 class="btn btn-danger btn-sm btn-hapus">
                                             <i class="fas fa-trash  "></i>
                                         </button>
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach

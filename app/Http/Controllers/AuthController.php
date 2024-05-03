@@ -32,7 +32,7 @@ class AuthController extends Controller
                 #kondisi dimana passwordnya terverifikasi
                 Auth::login($user);
                 $request->session()->regenerate();
-                return redirect('/teacher');
+                return redirect('/dashboard');
             }
         }
         return redirect()->back()->with('gagal', $pesanError);

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Export\TeacherXLS;
 use App\Models\Teacher;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Auth as Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TeacherController extends Controller
 {
@@ -80,6 +81,11 @@ class TeacherController extends Controller
     {
         return view('content.teacher.add');
     }
+    public function excel()
+{
+    return Excel::download(new TeacherXLS(), 'teacher_' . date('YmdHis') . '.xlsx');
+}
+
 
     }
 
