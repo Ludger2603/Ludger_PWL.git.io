@@ -44,23 +44,31 @@
 </style>
 <body>
 <div class="header">
-    <h1>Invoice Belanja</h1>
+    <h1>Rincian Booking</h1>
     <h2>{{$row->code}}</h2>
 </div>
 <hr>
 <table class="data">
     <tr>
-        <th>Nama Barang</th>
-        <th>@</th>
-        <th>Qty</th>
+        <th>Nama Motor</th>
+        <th>Harga Perhari</th>
+        <th>Lama Sewa</th>
         <th>Total</th>
+        <th>Telat 1 jam</th>
+        <th>Telat 3 jam</th>
+        <th>Telat 5 jam</th>
+        <th>Telat 24 jam</th>
     </tr>
     @foreach($row->ItemTransaction as $item)
         <tr>
-            <td>{{$item->Product->name}}</td>
+            <td>{{$item->Motor->name}}</td>
             <td class="right">{{number_format($item->price)}}</td>
             <td class="right">{{$item->qty}}</td>
             <td class="right">{{number_format($item->price * $item->qty)}}</td>
+            <td class="right">{{number_format($item->denda)}}</td>
+            <td class="right">{{number_format($item->denda1)}}</td>
+            <td class="right">{{number_format($item->denda2)}}</td>
+            <td class="right">{{number_format($item->denda3)}}</td>
         </tr>
     @endforeach
 </table>

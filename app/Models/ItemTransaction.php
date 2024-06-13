@@ -9,12 +9,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ItemTransaction extends Model
 {
     use HasFactory,SoftDeletes;
+    protected $table = 'booking';
+    protected $fillable = ['id','denda3', 'denda2', 'denda1', 'denda', 'id_transaction', 'id_motor', 'price', 'qty', 'total'];
 
     public function Transaction(){
-        return $this->belongsTo(Transaction::class,'id_transaction');
+        return $this->belongsTo(Transaction::class,'id_transaction','id');
     }
 
-    public function Product(){
-        return $this->belongsTo(Product::class,'id_product');
+    public function Motor(){
+        return $this->belongsTo(Motor::class,'id_motor');
     }
 }

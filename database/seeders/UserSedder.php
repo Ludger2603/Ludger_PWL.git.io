@@ -16,7 +16,19 @@ class UserSedder extends Seeder
         DB::table('users')->insert([
             'name' => 'Ludgerdus',
             'email' => 'Ludgerdusl@gmail.com',
-            'password' => password_hash('12345678', PASSWORD_DEFAULT)
-        ]);
+            'password' => bcrypt('12345678'), // Hash the password properly
+            'dob' => '2001-02-03', // Format the date properly as a string
+            'no_telepon' => '0845830843', // Enclose in quotes if it's a string
+            'alamat' => 'Jl. Kebon Jeruk'
+        ]);        
+        DB::table('users')->insert([
+            'name' => 'Ludgerdus',
+            'email' => 'Lud@gmail.com',
+            'password' => bcrypt('12345678'), // Hash the password properly
+            'dob' => '2001-02-03', // Format the date properly as a string
+            'no_telepon' => '0845830843', // Enclose in quotes if it's a string
+            'alamat' => 'Jl. Kebon Jeruk',
+            'role' => 'superadmin'
+        ]);        
     }
 }

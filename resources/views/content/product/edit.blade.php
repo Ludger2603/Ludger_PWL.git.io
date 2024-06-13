@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('judul','Edit Data Student')
+@section('judul','Edit Data Syarat')
 
 @section('content')
     <form method="post" action="{{url('product/update')}}">

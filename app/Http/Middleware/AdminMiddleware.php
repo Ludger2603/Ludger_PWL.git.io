@@ -12,14 +12,13 @@ class AdminMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response) $next
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->role === 'admin' || Auth::user()->role === 'superadmin'){
+        if (Auth::user()->role === 'admin' || Auth::user()->role === 'superadmin') {
             return $next($request);
         }
-        return abort(403,"anda tidak punya hak ases ke halaman ini");
+        return abort(403,"Anda tidak memiliki Hak Akses ke Halaman ini");
     }
-    
 }

@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('alamat');
+            $table->string('no_telepon');
+            $table->enum('jk', ['laki-laki', 'perempuan']);
+            $table->date('dob');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

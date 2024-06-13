@@ -9,10 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Transaction extends Model
 {
     use HasFactory,SoftDeletes;
+    protected $table = 'transactions';
+    protected $fillable = ['id','id_transaction'];
 
     public function ItemTransaction()
     {
-        return $this->hasMany(ItemTransaction::class,'id_transaction');
+        return $this->hasMany(ItemTransaction::class,'id_transaction','id');
     }
     public static function getLastCode($prefix)
     {
